@@ -1,8 +1,1 @@
-{
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/about/page": "app/about/page.js",
-  "/api/image/route": "app/api/image/route.js",
-  "/api/test/route": "app/api/test/route.js",
-  "/error/[status]/page": "app/error/[status]/page.js"
-}
+{}

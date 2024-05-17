@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server",
+    "start": "next start -p $PORT",
+    "start-custom-server": "NODE_ENV=production node server",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {

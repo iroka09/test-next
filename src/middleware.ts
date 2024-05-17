@@ -7,12 +7,12 @@ const router = createEdgeRouter<NextRequest, NextFetchEvent>();
 
 
 router.use(async (request, event, next) => {
-  console.log(`${request.method} ${request.url}`);
+  console.log("one middleware");
   return next();
 });
 
 router.use("/any", (request) => {
-  return new NextResponse("any page")
+  return new NextResponse("ONE page-1 oooo")
 });
 
 router.post("/about", (request) => {
@@ -37,32 +37,7 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico).*)"
+    "/((?!_next/static|_next/image|favicon).*)"
   ],
-  runtime: "experimental-edge",
+  // runtime: "experimental-edge",
 };
-
-
-/*
-export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl
-  console.log(pathname)
-  return NextResponse.next();
-  if (/^\/(?:_next|api|static).*$|^\/\w+\.\w{2,5}$/.test(pathname)) {
-  }
-  switch (pathname) {
-    case "/":
-      let response = NextResponse.next()
-      response.cookies.set("author", "Iroka", { path: "/" })
-      response.cookies.set({
-        name: "age",
-        value: 28 + "yrs",
-        path: "/"
-      })
-      return response
-    default:
-      return NextResponse.rewrite(new URL("/error/404?message=Page Not Found", req.url))
-  }
-}
-
-*/
